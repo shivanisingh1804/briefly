@@ -13,7 +13,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 dotenv.config();
 
 const app = express();
-const PORT = 5000;
+// const PORT = 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -78,6 +78,10 @@ app.post("/summarize", async (req, res) => {
   }
 });
 
+// app.listen(PORT, () => {
+//   console.log(`🚀 Backend running at http://localhost:${PORT}`);
+// });
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 Backend running at http://localhost:${PORT}`);
+  console.log(`🚀 Backend running on port ${PORT}`);
 });
