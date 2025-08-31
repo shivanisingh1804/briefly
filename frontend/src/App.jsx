@@ -77,10 +77,15 @@ function App() {
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://localhost:5000/extract-text", {
-        method: "POST",
-        body: formData,
-      });
+      // const response = await fetch("http://localhost:5000/extract-text", {
+      //   method: "POST",
+      //   body: formData,
+      // });
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/extract-text`, {
+  method: "POST",
+  body: formData,
+});
+
 
       const data = await response.json();
 
@@ -106,15 +111,23 @@ function App() {
     setStatus("Generating summary...");
 
     try {
-      const response = await fetch("http://localhost:5000/summarize", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          text: extractedText,
-          length: summaryLength,
-          options,
-        }),
-      });
+      // const response = await fetch("http://localhost:5000/summarize", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({
+      //     text: extractedText,
+      //     length: summaryLength,
+      //     options,
+      //   }),
+      // });
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/summarize`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ text: extractedText, length: summaryLength, options }),
+});
+
+
+
 
       const data = await response.json();
 
