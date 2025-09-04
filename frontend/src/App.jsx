@@ -77,15 +77,10 @@ function App() {
     formData.append("file", file);
 
     try {
-      // const response = await fetch("http://localhost:5000/extract-text", {
-      //   method: "POST",
-      //   body: formData,
-      // });
       const response = await fetch(`${import.meta.env.VITE_API_URL}/extract-text`, {
-  method: "POST",
-  body: formData,
-});
-
+        method: "POST",
+        body: formData,
+      });
 
       const data = await response.json();
 
@@ -111,23 +106,11 @@ function App() {
     setStatus("Generating summary...");
 
     try {
-      // const response = await fetch("http://localhost:5000/summarize", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify({
-      //     text: extractedText,
-      //     length: summaryLength,
-      //     options,
-      //   }),
-      // });
       const response = await fetch(`${import.meta.env.VITE_API_URL}/summarize`, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ text: extractedText, length: summaryLength, options }),
-});
-
-
-
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: extractedText, length: summaryLength, options }),
+      });
 
       const data = await response.json();
 
@@ -204,7 +187,7 @@ function App() {
       {/* Header */}
       <header className="header">
         <h1>📄 Briefly</h1>
-        <p class="tagline">"Turning documents into insights, instantly"</p>
+        <p className="tagline">"Turning documents into insights, instantly"</p>
         <button className="theme-toggle" onClick={toggleTheme}>
           {theme === "dark" ? "☀ Light Mode" : "🌙 Dark Mode"}
         </button>
@@ -220,10 +203,10 @@ function App() {
       />
 
       {/* Main Grid */}
-      <div className="main-grid">
+      <div className="main-grid row">
         {/* Upload Section */}
         <div
-          className={`upload-section ${dragActive ? "drag-active" : ""}`}
+          className={`upload-section ${dragActive ? "drag-active" : ""} col-md-4`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
@@ -231,14 +214,17 @@ function App() {
           <div className="upload-box">
             <div className="upload-icon">⬆️</div>
             {file ? (
-              <p>
-                <strong>{file.name}</strong>
-              </p>
+              <>
+                <p><strong>{file.name}</strong></p>
+                <button className="btn blue-btn" onClick={handleChooseFile}>
+                  Another file
+                </button>
+              </>
             ) : (
               <>
                 <p>Drag & drop PDF or Image here</p>
                 <p className="or">or</p>
-                <button className="btn" onClick={handleChooseFile}>
+                <button className="btn blue-btn" onClick={handleChooseFile}>
                   Choose file
                 </button>
               </>
@@ -247,7 +233,7 @@ function App() {
         </div>
 
         {/* Analysis Box */}
-        <div className="card analysis-box">
+        <div className="card analysis-box col-md-4">
           <h2>Document Analysis</h2>
           <p><strong>Word Count:</strong> {analysis.wordCount}</p>
           <p><strong>Tone:</strong> {analysis.tone}</p>
@@ -255,7 +241,7 @@ function App() {
         </div>
 
         {/* Suggestions */}
-        <div className="card">
+        <div className="card col-md-4">
           <h2>Improvement suggestions</h2>
           <ul>
             <li>Use clear headings and bullet points</li>

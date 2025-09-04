@@ -23,11 +23,10 @@
   --border: #ddd;
 }
 
-
 /* Global */
 body {
-  margin-left: 8% ;
-  margin-right: 8%;
+  /* margin-left: 8%;
+  margin-right: 8%; */
   font-family: Arial, sans-serif;
   background-color: var(--bg);
   color: var(--text);
@@ -47,6 +46,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 .header h1 {
   font-size: 24px;
@@ -70,7 +70,9 @@ body {
   text-align: center;
   margin-top: 10px;
   font-style: italic;
+  width: 100%;
 }
+
 /* Layout */
 .main-grid {
   display: grid;
@@ -133,6 +135,53 @@ body {
   color: var(--muted);
   margin: 8px 0;
 }
+/* Upload Section Card */
+.upload-section {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.upload-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.upload-box {
+  text-align: center;
+}
+
+.upload-icon {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+/* Blue Buttons */
+.btn.blue-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 14px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s;
+  display: inline-block;
+
+}
+.btn.blue-btn:hover {
+  background: #1d4ed8;
+}
+
+
+
 
 /* Buttons */
 .btn {
@@ -174,4 +223,37 @@ body {
   margin: 5px 0;
   font-size: 1rem;
   line-height: 1.5;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 1024px) {
+  .main-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .options-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .tagline {
+    text-align: left;
+  }
 }
