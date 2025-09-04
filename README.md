@@ -142,4 +142,3 @@ Backend runs at 👉 `http://localhost:5000`
 👩‍💻 **Developed by:** Shivani Singh
 
 ```
-
