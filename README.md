@@ -63,7 +63,7 @@ briefly/
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/briefly.git
+https://github.com/shivanisingh1804/briefly.git
 cd briefly
 ````
 
