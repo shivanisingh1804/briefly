@@ -1,4 +1,4 @@
- 📄 Briefly – Document Summarizer
+## 📄 Briefly – Document Summarizer
 
 "Turning documents into insights, instantly."
 
