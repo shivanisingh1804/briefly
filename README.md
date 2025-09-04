@@ -102,7 +102,7 @@ Create `.env` inside `backend/`:
 
 ```env
 PORT=5000
-OPENAI_API_KEY=your_api_key_here
+GEMINII_API_KEY=your_api_key_here
 ```
 
 Run backend:
@@ -134,7 +134,7 @@ Backend runs at 👉 `http://localhost:5000`
 * Add environment variable:
 
   ```
-  OPENAI_API_KEY=your_api_key_here
+  GEMINI_API_KEY=your_api_key_here
   ```
 
 ---
@@ -143,7 +143,3 @@ Backend runs at 👉 `http://localhost:5000`
 
 ```
 
----
-
-👉 Do you also want me to include **API endpoint documentation** (like `/extract`, `/summarize`) in the README so anyone can test backend independently?
-```
