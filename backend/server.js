@@ -163,7 +163,7 @@ app.post("/summarize", async (req, res) => {
     if (options?.smart) prompt += " Organize into coherent paragraphs.";
     prompt += `\n\nText:\n${text}`;
 
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
     const result = await model.generateContent(prompt);
     const summary = result.response.text();
 
